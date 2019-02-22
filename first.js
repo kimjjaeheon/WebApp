@@ -229,6 +229,41 @@ var ts = d.valueOf();
 console.log( d );
 console.log( ts );
 d2 = true;
-var n2 = b ? 1 : 0;
+var n2 = d2 ? 1 : 0;
 console.log( d2 );
 console.log( n2 );
+
+var v = 33.5;
+var v2 = v.toString();
+console.log( v );
+console.log( v2 );
+
+var arr9 = [ 1, true, "hello" ];
+console.log( arr9 );
+console.log( arr9.toString() );
+
+var n9 = 0;
+var b9 = !!n9;
+var b10 = Boolean( n9 );
+console.log( n9 );
+console.log( b9 );
+console.log( b10 );
+
+console.log( "---------------------------------------" );
+console.log();
+
+var xx = 5;
+var yy = 3 - xx;
+console.log( `xx = ${xx} yy = ${yy}` );
+
+var ss = "5";
+var yyy = 3 + +ss;
+console.log( `\nss = ${ss} yyy = ${yyy}` );
+
+var xx1 = 0, xx2 = 2, xx3 = -1.5, xx4 = -6.33;
+var p1 = -xx1 * 1;
+var p2 = +xx2 * 2;
+var p3 = +xx3 * 3;
+var p4 = -xx4 * 4;
+console.log( `\nxx1 = ${xx1} xx2 = ${xx2} xx3 = ${xx3} xx4 = ${xx4}` );
+console.log( `p1 = ${p1} p2 = ${p2} p3 = ${p3} p4 = ${p4}` );
