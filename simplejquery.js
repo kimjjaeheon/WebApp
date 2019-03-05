@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-    $("td").filter( function ( index ) {
-        return index % 3 == 0;
-    }).css("background", "red");
+    $("td").filter( function ( index ) { //filter가 Traverse filter(탐색필터) 이다.
+        return index % 3 == 0;           // function부분이 expression(표현식) 이다.
+    }).css("background", "red");         // td에 대한 인덱스값을 받아서 그 값을 3으로 나눈 나머지. 3의 배수가 되는 위치
 
     //3월 5일 오늘 한 내용
     //Selector 종류
