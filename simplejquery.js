@@ -1,8 +1,90 @@
+function colorEm() {
+    var $div = $("div"); //셀렉터결과는 jquery객체라고 했다. $div는 셀렉터 결과가 들어간다.
+    var start = Math.floor( Math.random() * $div.length ); //floor는 ()안에 가장큰값을 가져온다.
+    var end = Math.floor( Math.random() * ( $div.length - start ) ) + start + 1;
+
+    if( end === $div.length ) { end = undefined; }
+    $div.css( "background" , "" ); //div태그에대한 내용의 스타일을 적용 처음에는 바탕색을 없애고
+    if( end ){
+        $div.slice( start, end ).css( "background", "yellow" ); //slice는 인수가 두개이다. end는 안줘도 된다.
+    } else {
+        $div.slice( start ).css( "background", "yellow" );
+    }
+    $( "span" ).text( "$( 'div' ).slice( " + start + ( end ? ", " + end : "" ) + ").css( 'background', 'yellow' );" );
+}
+$( "button" ).click( colorEm ); //버튼이 눌렸을때만 작동되어서 굳이 ready안에 안넣었다.
+
+
+    //Tree 관련 method
+
 $(document).ready(function() {
 
-    $("td").filter( function ( index ) { //filter가 Traverse filter(탐색필터) 이다.
-        return index % 3 == 0;           // function부분이 expression(표현식) 이다.
-    }).css("background", "red");         // td에 대한 인덱스값을 받아서 그 값을 3으로 나눈 나머지. 3의 배수가 되는 위치
+    //selector.css( style, style값) style값을 function으로 확장이 가능하다.
+    $( "tr" ).css("background-color", function( index, value ){
+        if ( value == "rgb( 255, 255, 0 )" ) { return "red"; }
+    });
+    //$( "td" ).css("background", "blue");
+
+
+
+    //$( "li" ).each( function() { //li태그의 객체를 가지고 온다음 그 객체많큼 돌린다. 반복문같은 효과
+        //$(this).click( function() { //클릭을 했을때 클릭한 대상
+            //$(this).addClass( "selected" ); //원래는 클래스가 없는데 동적으로 클래스를 만든다.
+            //$(this).siblings().removeClass( "selected" ); //그내용에 대한 클래스를 삭제
+        //});
+    //});
+
+
+    //$( "div" ).find( "p" ).css( "border", "1px solid red" ); //div 집합 내용에서 p 요소를 가져온다.
+    //$( "div" ).filter( "p" ).css( "border", "1px solid red" ); //div집합에서 p요소를 찾는다.;
+    //$( "div" ).filter( ".my" ).css( "border", "1px solid red" );
+
+    // Misellanous Method
+    // .add() -> selector, element, html이 괄호안에 올 수 있다.
+    // .andSelf() -> 현재상태에 이전상태 추가
+    // .contents() -> 해당 결과를 배열 형태로 return
+    // .end() -> 현재상태를 이전상태로 돌아갈
+
+    //$( "ul" ).find( "li" ).contents().remove( "ul" ); //find메소드를 써서 li 태그를 찾는다. 그 내용을 배열로 가져와서 contents중에 ul을 삭제해라
+
+    //$( "li" ).add( "div > p" ).css("border", "1px solid red"); //해당하는 셀렉터 결과에 add는 추가를 하는 메소드.
+
+
+
+    /*
+    var litext = $("li").map( function (index) { //map은 jquery 배열형태로 나온다.
+        return "[(" + index + ")" + $(this).text() + "]";
+    }).get().join(','); //callback함수를 등록해놓는다.
+    $("#result").text(litext); */
+
+    /*
+    $("*").each( function() {
+        if( $(this).is("li") ){ // 표현식의 결과가 true/false냐로 반환.
+            $(this).css("border", "1px solid red");
+        }
+    }) */
+
+    //$("li").has("ul").css("background","red"); //selector를 포함한 대상에 대해서 또 다른 필터링
+
+
+    //3월 6일
+    //Traverse는 selector에 의해서 선별한 내용을 다시한번 선별
+    //함수성격이 좀 있다.
+    //앞쪽에있는 "td"라는 셀렉터를통해서 걸러냈것을 다시 필터를하는것이다.
+    //셀렉터 결과가 JQuery 객체이다.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //$("td").not( function ( index ) { //function부분이 아닌것들
+        //return index % 3 == 0;
+    //}).css("background", "red");
+
+
+    //$("td").filter( function ( index ) { //filter가 Traverse filter(탐색필터) 이다.
+        //return index % 3 == 0;           // function부분이 expression(표현식) 이다.
+    //}).css("background", "red");         // td에 대한 인덱스값을 받아서 그 값을 3으로 나눈 나머지. 3의 배수가 되는 위치
+                                       //.이 2번나온것을 Method chain이라고 이야기한다. .으로 연결연결하는 구조
+                                        //Method chain의 결과가 jQuery객체로 나오기 때문에 연결연결이 가능하다.
 
     //3월 5일 오늘 한 내용
     //Selector 종류

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple HTML - JQuery</title>
+        <meta charset="utf-8" />
+        <style>
+            div { border: 1px solid blue;}
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Simple HTML - JQuery</h1>
+        </header>
+        <div id="mouse">AREA(DIV) MOUSE:<span id="resultenter"></span><span id="resultleave"></span></div>
+        <div class="box2"></div>
+        <div>
+            <ul><li>list item 0</li></ul>
+            <input type="button" id="btnAdd" value="Add list element" /><br />
+            <input type="button" id="btnDie" value="Event Die" /><br />
+        </div>
+        <button>Toggle</button>
+        <div class="page">
+            <h1>jQuery Effects</h1>
+            <p>The jQuery library provides several techniques
+                for adding animation to a web page</p>
+        </div>
+
+        <div class="print"></div>
+
+        <div id="box"></div>
+
+        <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.25/paper-full.min.js"></script>
+        <script>
+            let countenter = 0;
+            let countleave = 0;
+            $(document).ready( function() {
+
+                $(".box2").css( {
+                    width: 100, height: 100, background: 'red'
+                }).animate({
+                    width: 300, opacity: 0.5
+                }, 500);
+
+
+                $("button").click( function() {
+                    $(".page").fadeToggle( "slow" );
+                })
+
+
+
+
+                $("#box").css({
+                    width: 100, height: 100, background: 'orange'
+                }).on('click', function( ) {
+                    $(this).css('background', 'red');
+                }).on('mouseenter', function() {
+                    $(this).css('background', 'blue');
+                }).on('mouseleave', function(){
+                    $(this).css('background', 'orange');
+                });
+            })
+
+            //one() : event를 한번만 처리한다.
+            $(document).ready( function(){
+                $("#btnDie").click( function() {
+                    $("li").die(); //필요에 따라서 이벤트를 정지시키고싶을때 쓰는데 1.7.1버전에서만 작동
+                });
+                $("#btnAdd").click( function() {
+                    $("ul").append( '<li>list item add(' + $('li').length + ')</li>' );
+                })
+
+                $("li").live("click", function() { //동적으로 event추가인데 1.7.1버전에서만 작동
+                    $(".print").html("<p>" + $(this).text() + "</p>" );
+                })
+
+
+                //$("#mouse").bind( {
+                    //mouseenter: function() { ++countenter; $("#resultenter").text( countenter + " mouse enter"); },
+                    //mouseleave: function() { ++countleave; $("#resultleave").text( countleave + " mounse leave"); }
+                //})
+
+
+                /*$("#mouse").bind("mouseenter mouseleave", function( e ){ //bind는 첫번째인수가 event이고 그다음인수가 이벤트에대한 핸들러가 된다.
+                                                                        //두개의 동작을 다 작동하도록 하는 것 = bind. (묶어서 처리를 해준다.)
+                    if( e.type === 'mouseenter'){
+                        ++countenter;
+                        $("#resultenter").text( countenter + " mouse enter" );
+                    } else{
+                        ++countleave;
+                        $("#resultleave").text( countleave + " mouse leave" );
+                    }
+
+                });
+
+                $("#txtText").keydown( function(e){
+                    $("#txtKeycode").val(e.keyCode);
+                });
+
+                $("h1").click( function(){
+                    $("div").html("<p>Event : click</p>")
+                }) */
+
+                $("h1").hover( function(){
+                    $(this).css({background: 'red', color: 'white'});
+                }, function() {
+                    $(this).css( {background: '', color: '' } );
+                });
+            });
+
+
+        </script>
+    </body>
+</html>
+
+
+<!-- $Selector + Method =>이게 jquery를 이루는 형태
+    여태까지는 Selector를 알아봤고, method는 traverse method이다.
+     $는 jquery라는 뜻이다.
+
+      jquery     javaScript
+     .html() -> innerHTML()
+                html tag가 포함된 text
+     .text() -> text()
+                text만 포함
+
+///////////    javaScript ///////////////
+    <Button onClick ="process()">
+    function process(){
+
+}
+///////////   jquery /////////////
+<Button> _ </Button>
+$("Button").click( function(){
+
+})
+    -->
