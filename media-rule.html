@@ -5,10 +5,19 @@
     <title>형식 1</title>
     <meta name="viewport" content="width=device-width; initial-scale=1.0" />
     <style>
-        @media screen{
-            * { font-family: serif; font-size: 24px; border: 1px solid red; } }
-        @media print{
-            * { font-family: snas-serif; font-size: 8px; } }
+        @media only screen and ( max-width: 320px ){
+            * { background: limegreen; color: white;
+                font-family: serif; font-size: 24px; } }
+        @media only screen and ( min-width: 321px ) and ( orientation: portrait){
+            * { background: lightyellow; color: black;
+                font-family: serif; font-size: 8px; } }
+        @media only screen and ( min-width: 321px ) and ( orientation: landscape){
+            * { background: pruple; color: white;
+                font-family: serif; font-size: 24px; } }
+        @media print { * { font-family-serif, font-size: 8px; } }
+
+        h1 { font-size : 48px; }
+        h2 { font-size : 24px; }
     </style>
 </head>
 <body>
