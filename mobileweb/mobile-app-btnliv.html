@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>jQuery Mobile</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+	<div data-role="header">
+		<h1>header영역</h1>
+	</div>
+	<div data-role="content">
+		<p>content영역</p>
+		<a href="#page2" data-role="button" data-inline="true" data-corners="false">(1) a태그 버튼</a> <!-- data-inline="true"버튼의크기가 텍스트크기만큼된다. -->
+        <!--  data-corners="false" 코너들을 직각으로 바꾸는것 -->
+        <button>(2) button태그 버튼</button>
+		<input type="button" value="(3) input태그 버튼">
+        <button data-icon="arrow-1">left arrow</button>
+        <button data-icon="check">check</button>
+        <button data-role="none" data-icon="refresh">button</button>
+        <input type="button" value="search button" data-icon="search">
+        <input type="submit" value="submit" data-icon="grid">
+        <input type="reset" value="reset" data-icon="alert">
+        <input type="image" value="home button" data-icon="home">
+        <a herf="#" data-role="button" data-icon="info">information</a>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>footer영역</h4>
+	</div>
+</div>
+
+</body>
+</html>

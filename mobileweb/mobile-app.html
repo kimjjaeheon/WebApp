@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Test</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="page1"> <!-- 페이지를 여러개 만들수있으므로 id를 부여해 고유한 페이지를 설정한다.-->
+            <div data-role="header">
+                <h1>Page Title(Home)</h1> <!-- 제목역할을 한다. <h1>태그를 주로 사용 페이지전환목적의 버튼들.(or Footer에)-->
+            </div>
+            <div data-role="content">
+                <p>Page content goes here. #1</p>
+                <a href="#page2" data-transition="pop">Page 2</a> <!-- 다른 페이지 호출방법 a태그 -->
+                <a href="mobile-app-page3.html#page3" data-ajax="false">Page 3</a>
+                <a href="http://m.naver.com/index.html" target="_blank">Naver</a>
+                <a href="https://www.google.com/maps/@37.5392375,126.9003409,14z">google map 링크</a>
+            </div>
+            <div data-role="footer">
+                <h4>Page Footer</h4> <!-- header와 비슷한 역할. 내용이 많은건 좋지않다. 저작권표시or이전이후 이정도 (보통h4를 사용한다.) -->
+            </div>
+        </div>
+        <div data-role="page" id="page2">
+            <div data-role="header">
+                <h1>Page Title(Page 2)</h1>
+            </div>
+            <div data-role="content">
+                <p>Page content goes here. #2</p>
+                <a href="#page1">Page 1</a>
+            </div>
+            <div data-role="footer">
+                <h4>Page Footer</h4>
+            </div>
+        </div>
+    </body>
+</html>
+
+<!-- mobile -> 무조건 전체화면으로만 동작
+<div data-role=""> div의 속성인 data-role이 모바일화면의
+header content footer page를 결정해준다.
+<div>안에 내용 </div>
+화면을 두개로만들때는 data-role="page"를 두개를 만들고
+이동하려면 a태그를 통해서 이동한다. <a href="#page2">
+page에 id를 통해서 이동한다.
+
+
+
+-->
