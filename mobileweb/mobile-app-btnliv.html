@@ -16,10 +16,30 @@
 	</div>
 	<div data-role="content">
 		<p>content영역</p>
-		<a href="#page2" data-role="button" data-inline="true" data-corners="false">(1) a태그 버튼</a> <!-- data-inline="true"버튼의크기가 텍스트크기만큼된다. -->
+        <ol data-role="listview" data-inset="true" data-split-icon="action" data-split-theme="b"> <!-- data-inset="true" 양옆에 여백을준다.-->
+            <li><a href="#">항목 #1</a><a href="#page2">page 2</a></li><!--옆에 화살표가 나타난다. -->
+            <li><a href="#">항목 #2</a><a href="#">detail</a></li>
+            <li><a href="#">항목 #3</a><a href="#">detail</a></li>
+            <li><a href="#">항목 #4</a><a href="http://m.google.com" target="_blank">google</a></li>
+        </ol>
+        <br /><br />
+        <div data-role="controlgroup">
+            <a href="#" data-role="button" data-theme="a">Button #1</a>
+            <a href="#" data-role="button" data-theme="a">Button #2</a>
+            <a href="#" data-role="button" data-theme="a">Button #3</a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal">
+            <a href="#" data-role="button" data-theme="b">Button #1</a>
+            <a href="#" data-role="button" data-theme="b">Button #2</a>
+            <a href="#" data-role="button" data-theme="b">Button #3</a>
+        </div>
+
+		<a href="#page2" data-role="button">(1) a태그 버튼 <!-- data-inline="true"버튼의크기가 텍스트크기만큼된다. -->
         <!--  data-corners="false" 코너들을 직각으로 바꾸는것 -->
-        <button>(2) button태그 버튼</button>
-		<input type="button" value="(3) input태그 버튼">
+            <img src="html-logo.png">
+        </a>
+        <button><img src="javascript-logo.png"></button> <!-- 사이즈가 안맞아서 a태그는 그런걸 무시-->
+		<input type="button" src="css-logo.png" data-role="button">
         <button data-icon="arrow-1">left arrow</button>
         <button data-icon="check">check</button>
         <button data-role="none" data-icon="refresh">button</button>
@@ -36,3 +56,9 @@
 
 </body>
 </html>
+
+<!-- 톱니바퀴가 리스트뷰
+    listview(목록, 집합데이터출력할때.) -> layout (화면 구성)
+    여러 데이터를 일괄적으로 보여주는 목적도 있지만
+    하나의 화면. 웹앱의 한 페이지를 구성하기가 용이하다.
+-->
